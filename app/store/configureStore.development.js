@@ -1,7 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
-import { hashHistory } from 'react-router';
-import { routerMiddleware } from 'react-router-redux';
 import ReduxPromise from 'redux-promise';
 import rootReducer from '../rootReducer';
 
@@ -10,10 +8,9 @@ const logger = createLogger({
   collapsed: true,
 });
 
-const router = routerMiddleware(hashHistory);
 
 const enhancer = compose(
-  applyMiddleware(router, logger, ReduxPromise),
+  applyMiddleware(logger, ReduxPromise),
   window.devToolsExtension ? window.devToolsExtension() : noop => noop
 );
 
