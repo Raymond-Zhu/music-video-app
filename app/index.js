@@ -5,8 +5,10 @@ import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './store/configureStore';
 import routes from './routes';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import ArtistPage from './artists/ArtistPage';
 
+injectTapEventPlugin();
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store);
 
