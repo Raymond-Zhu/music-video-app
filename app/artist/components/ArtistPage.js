@@ -10,13 +10,17 @@ class ArtistPage extends Component {
 
   render () {
       return (
-        <div>Hello World!</div>
+        <div>{this.props.artist[0].name}</div>
       );
     };
 };
+
+function mapStateToProps(state) {
+  return {artist: state.artist};
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchArtist }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(ArtistPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage)
