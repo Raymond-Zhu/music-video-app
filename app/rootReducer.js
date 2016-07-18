@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
-import artistReducer from './artist/reducer'
+import artist from './artist/reducer'
 
 const rootReducer = combineReducers({
   routing,
-  artistReducer
+  artist
 });
 
 export default rootReducer;
