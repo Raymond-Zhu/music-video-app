@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { fetchArtist } from '../actions'
 import { connect } from 'react-redux';
+import ArtistList from '../components/ArtistList';
 
 class ArtistPage extends Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class ArtistPage extends Component {
 
   render () {
       return (
-        <div>{this.props.artist[0].name}</div>
+        <ArtistList artist={this.props.artist} />
       );
     };
 };
