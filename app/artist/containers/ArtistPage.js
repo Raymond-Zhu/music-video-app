@@ -10,7 +10,7 @@ class ArtistPage extends Component {
   }
 
   render () {
-      return (
+    return (
         <ArtistList artist={this.props.artist} />
       );
     };
