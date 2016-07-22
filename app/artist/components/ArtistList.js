@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Artist from './Artist';
 import Dialog from 'material-ui/Dialog';
+import TrackList from '../../track/components/TrackList';
 
 export default class ArtistList extends Component {
   constructor (props) {
     super(props);
-    this.state = {open: false};
+    this.state = {open: false, selectedArtist: ""};
 
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
   };
 
-  handleOpen() {
-    this.setState({open: true});
+  handleOpen(artistId) {
+    this.setState({open: true, selectedArtist: artistId});
   };
 
   handleClose() {
@@ -22,11 +23,11 @@ export default class ArtistList extends Component {
   render() {
     return (
       <div>
-        {this.props.artist.map(({name, id, img_url}) => (
-          <div key={id} onClick={this.handleOpen}>
+        {this.props.artists.map((artist) => (
+          <div key={artist.id} onClick={() => {this.handleOpen(artist.id)}}>
             <Artist
-              name={name}
-              img={img_url}
+              name={artist.name}
+              img={artist.img_url}
             />
           </div>
           ))}
@@ -35,7 +36,7 @@ export default class ArtistList extends Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          Hello World
+          <TrackList artistId={this.state.selectedArtist} />
         </Dialog>
       </div>
     );

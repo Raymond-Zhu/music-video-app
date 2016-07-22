@@ -11,13 +11,13 @@ class ArtistPage extends Component {
 
   render () {
     return (
-        <ArtistList artist={this.props.artist} />
+        <ArtistList artists={this.props.artists} />
       );
     };
 };
 
 function mapStateToProps(state) {
-  return {artist: state.artist};
+  return {artists: state.artists};
 }
 
 function mapDispatchToProps(dispatch) {

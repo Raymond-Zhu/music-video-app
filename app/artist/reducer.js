@@ -2,8 +2,8 @@ import { GET_ARTIST_LIST } from './actionTypes';
 
 export default function(state = [], action) {
   switch(action.type) {
-  case GET_ARTIST_LIST:
-    return action.payload;
+    case GET_ARTIST_LIST:
+      return action.payload.data.artists;
   }
   return state;
 }
