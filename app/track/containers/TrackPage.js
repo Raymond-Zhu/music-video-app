@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-class TrackPage extends Component {
+export default class TrackPage extends Component {
   constructor(props) {
     super(props);
-  }
+  };
 
-
-
-}
+  render() {
+    return <div>Hello</div>
+  };
+};

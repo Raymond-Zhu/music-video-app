@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Artist from './Artist';
 import Dialog from 'material-ui/Dialog';
 import TrackList from '../../track/components/TrackList';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 export default class ArtistList extends Component {
   constructor (props) {
@@ -11,7 +11,7 @@ export default class ArtistList extends Component {
 
   handleOnTouch(artist) {
     this.props.selectArtist(artist);
-    //TODO FINISH THIS
+    hashHistory.push('/track');
   }
 
   render() {
