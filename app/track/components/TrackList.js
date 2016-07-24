@@ -18,7 +18,8 @@ export default class TrackList extends Component {
     return (
       <div>
         {this.state.tracks.map((track) => {
-          return track.title
+          return (<div><div>{track.title}</div>
+            <div>{track.title}</div></div>)
         })}
       </div>
     )

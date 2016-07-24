@@ -1,4 +1,4 @@
-import { GET_ARTIST_LIST } from './actionTypes';
+import { GET_ARTIST_LIST, SELECTED_ARTIST } from './actionTypes';
 import { getArtist } from  '../api/backend';
 
 export function fetchArtist() {
@@ -8,3 +8,10 @@ export function fetchArtist() {
     payload: request
   };
 };
+
+export function selectArtist(artist) {
+  return {
+    type: SELECTED_ARTIST,
+    selectedArtist: artist
+  };
+}

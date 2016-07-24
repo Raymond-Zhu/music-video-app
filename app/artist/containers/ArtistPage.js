@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { fetchArtist } from '../actions'
+import { fetchArtist, selectArtist } from '../actions';
 import { connect } from 'react-redux';
 import ArtistList from '../components/ArtistList';
 
@@ -11,7 +11,10 @@ class ArtistPage extends Component {
 
   render () {
     return (
-        <ArtistList artists={this.props.artists} />
+      <ArtistList
+        artists={this.props.artists}
+        selectArtist={selectArtist}
+      />
       );
     };
 };
@@ -21,7 +24,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchArtist }, dispatch)
+  return bindActionCreators({ fetchArtist, selectArtist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage)
