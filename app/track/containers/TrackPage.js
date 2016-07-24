@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import TrackList from '../components/TrackList'
 
-export default class TrackPage extends Component {
+class TrackPage extends Component {
   constructor(props) {
     super(props);
   };
@@ -9,3 +12,9 @@ export default class TrackPage extends Component {
     return <div>Hello</div>
   };
 };
+
+function mapStateToProps(state) {
+  return {selectedArtist: state.artists.selectedArtist};
+}
+
+export default connect(mapStateToProps)(TrackPage);

@@ -4,29 +4,23 @@ import Dialog from 'material-ui/Dialog';
 import TrackList from '../../track/components/TrackList';
 import { hashHistory } from 'react-router';
 
-export default class ArtistList extends Component {
-  constructor (props) {
-    super(props);
-  };
+const handleOnTouch = (artist, selectArtist) => {
+  selectArtist(artist);
+  hashHistory.push('/track');
+}
 
-  handleOnTouch(artist) {
-    this.props.selectArtist(artist);
-    hashHistory.push('/track');
-  }
+const ArtistList = ({artists, selectArtist}) => (
+  <div>
+    {artists !== undefined
+      ? artists.map((artist) => ( //TODO If artist is null, return loading
+        <div key={artist.id} onTouchTap={() => {handleOnTouch(artist, selectArtist)}}>
+          <Artist
+            name={artist.name}
+            img={artist.img_url}
+          />
+        </div>))
+      : <div>Loading</div>}
+    </div>
+);
 
-  render() {
-    return (
-      <div>
-        {this.props.artists.map((artist) => (
-          <div key={artist.id} onTouchTap={() => {this.handleOnTouch(artist)}}>
-            <Artist
-              name={artist.name}
-              img={artist.img_url}
-            />
-          </div>
-          ))}
-      </div>
-    );
-  };
-};
-
+export default ArtistList;

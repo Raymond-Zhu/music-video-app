@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { fetchArtist, selectArtist } from '../actions';
+import { fetchArtists, selectArtist } from '../actions';
 import { connect } from 'react-redux';
 import ArtistList from '../components/ArtistList';
 
 class ArtistPage extends Component {
   componentDidMount() {
-    this.props.fetchArtist();
+    this.props.fetchArtists();
   }
 
   render () {
@@ -20,11 +20,11 @@ class ArtistPage extends Component {
 };
 
 function mapStateToProps(state) {
-  return {artists: state.artists};
+  return {artists: state.artists.artistList};
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchArtist, selectArtist }, dispatch)
+  return bindActionCreators({ fetchArtists, selectArtist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage)
