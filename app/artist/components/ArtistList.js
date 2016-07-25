@@ -13,7 +13,7 @@ const ArtistList = ({artists, selectArtist}) => (
   <div>
     {artists !== undefined
       ? artists.map((artist) => ( //TODO If artist is null, return loading
-        <div key={artist.id} onTouchTap={() => {handleOnTouch(artist, selectArtist)}}>
+        <div key={artist.id} onClick={() => {handleOnTouch(artist, selectArtist)}}>
           <Artist
             name={artist.name}
             img={artist.img_url}

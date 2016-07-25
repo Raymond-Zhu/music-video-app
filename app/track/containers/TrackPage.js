@@ -9,7 +9,7 @@ class TrackPage extends Component {
   };
 
   render() {
-    return <div>Hello</div>
+    return <TrackList artist={this.props.selectedArtist} />
   };
 };
 

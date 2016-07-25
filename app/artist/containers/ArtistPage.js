@@ -13,7 +13,7 @@ class ArtistPage extends Component {
     return (
       <ArtistList
         artists={this.props.artists}
-        selectArtist={selectArtist}
+        selectArtist={this.props.selectArtist}
       />
       );
     };

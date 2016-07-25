@@ -9,7 +9,7 @@ export default class TrackList extends Component {
   };
 
   componentDidMount() {
-    getTracks(this.props.artistId).then((response) => {
+    getTracks(this.props.artist.id).then((response) => {
       this.setState({tracks: response.data.tracks});
     });
   };
@@ -17,13 +17,10 @@ export default class TrackList extends Component {
   render() {
     return (
       <div>
-        {this.state.tracks.map((track) => {
-          return (<div><div>{track.title}</div>
-            <div>{track.title}</div></div>)
-        })}
+        {this.state.tracks.map((track) => (
+          <div>{track.title}</div>
+        ))}
       </div>
     )
   };
 };
-
-
