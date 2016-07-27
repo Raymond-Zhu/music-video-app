@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getTracks } from '../../api/backend';
+import Track from './Track';
 
 export default class TrackList extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class TrackList extends Component {
     return (
       <div>
         {this.state.tracks.map((track) => (
-          <div>{track.title}</div>
+          <Track key={track.id} track={track}/>
         ))}
       </div>
     )
