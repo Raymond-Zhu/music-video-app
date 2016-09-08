@@ -7,8 +7,12 @@ export default class Player extends Component {
   };
 
   render() {
+    var style = {
+      'height' : '50%'
+    }
+
     return (
-      <div>
+      <div style={style}>
         <Controls />
       </div>
     )
