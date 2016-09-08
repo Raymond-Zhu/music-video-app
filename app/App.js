@@ -1,5 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 import NavBar from './navbar/components/NavBar'
+import SideBar from './sidebar/containers/SideBar.js'
 
 export default class App extends Component {
   static propTypes = {
@@ -7,10 +8,19 @@ export default class App extends Component {
   };
 
   render() {
+    var contentStyle = {
+      background: "blue",
+      overflow: 'auto',
+      'width' : '75%'
+    }
+
     return (
       <div>
-        <NavBar />
-        {this.props.children}
+        <SideBar />
+        <div style={contentStyle}>
+          <NavBar />
+          {this.props.children}
+        </div>
       </div>
     );
   };
