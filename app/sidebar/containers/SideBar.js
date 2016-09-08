@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Player from '../components/Player';
 
 class SideBar extends Component {
   constructor(props)  {
@@ -6,8 +7,15 @@ class SideBar extends Component {
   }
 
   render() {
+    var style = {
+      width: 300,
+      float: 'right',
+      'height': '100%',
+      overflow: 'auto',
+    }
     return (
-      <div>
+      <div style={style}>
+        <Player />
       </div>
     )
   }

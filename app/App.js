@@ -11,7 +11,7 @@ export default class App extends Component {
     var contentStyle = {
       background: "blue",
       overflow: 'auto',
-      'width' : '75%'
+      width : 'calc(100% - 300px)',
     }
 
     return (
