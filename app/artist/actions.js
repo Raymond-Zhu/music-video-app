@@ -14,4 +14,4 @@ export function selectArtist(artist) {
     type: SELECTED_ARTIST,
     selectedArtist: artist
   };
-}
+};
