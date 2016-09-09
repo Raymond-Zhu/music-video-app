@@ -9,8 +9,8 @@ export default class TrackList extends Component {
     this.state = {tracks: []};
   };
 
-  handleOnTouch(track, addToNowPlaying) {
-    addToNowPlaying(track);
+  handleOnTouch(track, addToQueue) {
+    addToQueue(track);
   };
 
   componentDidMount() {
@@ -23,7 +23,7 @@ export default class TrackList extends Component {
     return (
       <div>
         {this.state.tracks.map((track) => (
-          <div key={track.id} onTouchTap={() => this.handleOnTouch(track, this.props.addToNowPlaying)}>
+          <div key={track.id} onTouchTap={() => this.handleOnTouch(track, this.props.addToQueue)}>
             <Track track={track}/>
           </div>
         ))}

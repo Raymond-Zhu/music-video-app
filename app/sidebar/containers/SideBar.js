@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Player from '../components/Player';
 
 class SideBar extends Component {
@@ -15,10 +16,14 @@ class SideBar extends Component {
     }
     return (
       <div style={style}>
-        <Player />
+        <Player nowPlaying={this.props.trackQueue[0]}/>
       </div>
     )
   }
 }
 
-export default SideBar;
+function mapStateToProps(state) {
+  return {trackQueue: state.trackQueue};
+}
+
+export default connect(mapStateToProps)(SideBar);

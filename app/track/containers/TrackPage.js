@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import TrackList from '../components/TrackList'
-import { addToNowPlaying } from '../actions'
+import { addToQueue } from '../actions'
 
 class TrackPage extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class TrackPage extends Component {
   };
 
   render() {
-    return <TrackList artist={this.props.selectedArtist} addToNowPlaying={this.props.addToNowPlaying} />
+    return <TrackList artist={this.props.selectedArtist} addToQueue={this.props.addToQueue} />
   };
 };
 
@@ -19,7 +19,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addToNowPlaying }, dispatch);
+  return bindActionCreators({ addToQueue }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackPage);
