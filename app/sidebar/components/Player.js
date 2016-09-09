@@ -14,8 +14,8 @@ export default class Player extends Component {
     return (
       <div style={style}>
         {this.props.nowPlaying === undefined ? "undefined" :
-          <img style={{'max-width':'100%'}} src={this.props.nowPlaying.image}/>}
-        <Controls />
+          <img style={{'maxWidth':'100%'}} src={this.props.nowPlaying.image}/>}
+        <Controls removeFromQueue={this.props.removeFromQueue}/>
       </div>
     )
   }
