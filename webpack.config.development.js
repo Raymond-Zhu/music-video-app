@@ -11,7 +11,7 @@ const config = {
 
   entry: {
     index: ['./app/index','webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr'],
-    youtube: ['./app/youtube/youtube','webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr']
+    youtube: ['./app/youtube/index','webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr']
   },
 
   output: {

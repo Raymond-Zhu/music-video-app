@@ -9,7 +9,7 @@ const config = {
 
   entry: [
     './app/index',
-    './app/youtube/index.html'
+    './app/youtube/index'
   ]
 
   output: {
