@@ -21,7 +21,7 @@ export default class Controls extends Component {
         <div onTouchTap={this.handleTouch}>
           {this.state.paused ? "Play" : "Pause"}
         </div>
-        <div>Next</div>
+        <div onTouchTap={this.props.removeFromQueue}>Next</div>
       </div>
     )
   }

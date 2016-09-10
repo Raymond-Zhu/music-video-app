@@ -1,8 +1,16 @@
-import { ADD_TO_NOW_PLAYING } from './actionTypes';
+import { ADD_TO_QUEUE, REMOVE_FROM_QUEUE } from './actionTypes';
 
-export function addToNowPlaying(track) {
+export function addToQueue(track) {
   return {
-    type: ADD_TO_NOW_PLAYING,
+    type: ADD_TO_QUEUE,
     selectedTrack: track
   };
 };
+
+export function removeFromQueue() {
+  return {
+    type: REMOVE_FROM_QUEUE
+  };
+};
+
+
