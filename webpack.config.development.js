@@ -9,13 +9,14 @@ const config = {
 
   devtool: 'cheap-module-eval-source-map',
 
-  entry: [
-    'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
-    './app/index'
-  ],
+  entry: {
+    index: ['./app/index','webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr'],
+    youtube: ['./app/youtube/youtube','webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr']
+  },
 
   output: {
     ...baseConfig.output,
+    filename: '[name].bundle.js',
     publicPath: 'http://localhost:3000/dist/'
   },
 

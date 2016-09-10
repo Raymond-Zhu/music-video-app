@@ -3,6 +3,7 @@ import { app, BrowserWindow, Menu, shell } from 'electron';
 let menu;
 let template;
 let mainWindow = null;
+let youtubeWindow = null;
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -49,6 +50,22 @@ app.on('ready', async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  youtubeWindow = new BrowserWindow({
+    show: false,
+    width: 1920,
+    height: 1080,
+  });
+
+  youtubeWindow.loadURL(`file://${__dirname}/app/youtube/index.html`);
+
+  youtubeWindow.webContents.on('did-finish-load', () => {
+    youtubeWindow.show();
+  });
+
+  youtubeWindow.on('closed', () => {
+    youtubeWindow = null;
   });
 
   if (process.env.NODE_ENV === 'development') {
