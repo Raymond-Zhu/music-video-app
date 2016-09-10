@@ -7,11 +7,14 @@ const config = {
 
   devtool: 'source-map',
 
-  entry: './app/index',
+  entry: [
+    './app/index',
+    './app/youtube/index.html'
+  ]
 
   output: {
     ...baseConfig.output,
-
+    fileName: '[name].bundle.js',
     publicPath: '../dist/'
   },
 
