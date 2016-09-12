@@ -9,7 +9,6 @@ export default class App extends Component {
 
   render() {
     var contentStyle = {
-      background: "blue",
       overflow: 'auto',
       width : 'calc(100% - 300px)',
     }

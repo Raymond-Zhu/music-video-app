@@ -37,15 +37,15 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1920,
-    height: 1080
+    width: 1280,
+    height: 720
   });
 
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
-    mainWindow.setFullScreen(true);
+    //mainWindow.setFullScreen(true);
     mainWindow.focus();
   });
 
@@ -55,15 +55,15 @@ app.on('ready', async () => {
 
   youtubeWindow = new BrowserWindow({
     show: false,
-    width: 1920,
-    height: 1080,
+    width: 1280,
+    height: 720,
   });
 
   youtubeWindow.loadURL(`file://${__dirname}/app/youtube/index.html`);
 
   youtubeWindow.webContents.on('did-finish-load', () => {
     youtubeWindow.show();
-    youtubeWindow.setFullScreen(true);
+    //  youtubeWindow.setFullScreen(true);
   });
 
   youtubeWindow.on('closed', () => {

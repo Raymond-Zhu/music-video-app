@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { ipcRenderer } from 'electron';
 import Youtube from 'react-youtube';
 import '../app.global.css';
 
 class YoutubeWindow extends Component {
   constructor(props) {
     super(props);
+    this.state = {videoId: ''};
+    this.onEnd = this.onEnd.bind(this);
+
+    ipcRenderer.on('video-change', (event, arg) => {
+      this.setState({videoId: arg});
+    });
   }
 
   render () {
@@ -23,15 +30,15 @@ class YoutubeWindow extends Component {
 
     return (
       <Youtube
-        videoId="M7lc1UVf-VE"
+        videoId={this.state.videoId}
         opts={opts}
-        onReady={this._onReady}
+        onEnd={this.onEnd}
       />
     );
   }
 
-  _onReady(event) {
-    event.target.playVideo();
+  onEnd(event) {
+    ipcRenderer.send('video-finished' );
   }
 }
 
